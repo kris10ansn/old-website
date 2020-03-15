@@ -1,0 +1,13 @@
+{
+	"name": "kris10ansn.github.io",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"live-server": "live-server . --port=8000",
+		"sass-watch": "sass --watch styles/style.scss styles/style.css"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC"
+}
