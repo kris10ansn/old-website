@@ -8,6 +8,7 @@
   --margin-top-bottom: 110px;
   --project-cols: 3;
   --margin-multiplier-projects: 2;
+  --img-anim-delay: 0.4s;
 }
 
 body {
@@ -81,12 +82,13 @@ nav div.menu * {
 }
 nav div.menu a.bmc {
   height: 2rem;
-}
-nav div.menu a.bmc img {
-  height: 2rem;
-  margin: 0;
   border: 1px solid black;
   border-radius: 7px;
+  overflow: hidden;
+}
+nav div.menu a.bmc img {
+  height: 100%;
+  margin: 0;
   animation: hue-rotate 5s infinite;
 }
 nav div.hamburger {
@@ -97,13 +99,18 @@ main {
   display: flex;
   height: 100vh;
 }
-main img.jumbo {
+main div.jumbo {
   position: relative;
   height: calc(100vh - 10vh - 20vh);
-  border-radius: 2vh;
   top: 10vh;
+  min-width: 50vw;
+}
+main div.jumbo img.jumbo {
+  border-radius: 2vh;
+  display: none;
+  height: 100%;
   opacity: 0;
-  animation: slide-in forwards 1.1s ease 0.4s;
+  animation: slide-in forwards 1.1s ease var(--img-anim-delay);
   transform: translateY(-50%);
 }
 @keyframes slide-in {
@@ -194,16 +201,6 @@ section.title {
 section.title h1 {
   text-transform: uppercase;
   font-size: calc(var(--title-size) / 2);
-}
-section.title svg.github {
-  display: block;
-  height: 4rem;
-  fill: white;
-  transition: fill 0.25s ease;
-  cursor: pointer;
-}
-section.title svg.github:hover {
-  fill: rgba(255, 255, 255, 0.7);
 }
 section.title span.spacer {
   font-size: 1.5rem;

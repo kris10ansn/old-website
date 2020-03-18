@@ -1,19 +1,44 @@
-function distanceToTop(element) {
-	return Math.floor(element.getBoundingClientRect().top);
+function smoothScroll() {
+    function distanceToTop(element) {
+        return Math.floor(element.getBoundingClientRect().top);
+    }
+
+    function anchorLinkHandler(event) {
+        event.preventDefault();
+        const targetID = this.getAttribute("href");
+        const targetAnchor = document.querySelector(targetID);
+        if (!targetAnchor) return;
+
+        const originalTop = distanceToTop(targetAnchor);
+
+        window.scrollBy({ top: originalTop, left: 0, behavior: "smooth" });
+        location.hash = "";
+    }
+
+    const linksToAnchors = document.querySelectorAll('a[href^="#"]');
+
+    linksToAnchors.forEach(each => (each.onclick = anchorLinkHandler));
 }
 
-function anchorLinkHandler(event) {
-	event.preventDefault();
-	const targetID = this.getAttribute("href");
-	const targetAnchor = document.querySelector(targetID);
-	if (!targetAnchor) return;
+function loadImage() {
+    const img = document.querySelector("img.jumbo");
+    const startTime = Date.now();
+    const anim = "--img-anim-delay";
 
-	const originalTop = distanceToTop(targetAnchor);
+    img.onload = () => {
+        const styles = window.getComputedStyle(img);
+        const animDelay =
+            (parseFloat(styles.getPropertyValue(anim)) || 0) * 1000;
+        const loadTime = Date.now() - startTime;
 
-	window.scrollBy({ top: originalTop, left: 0, behavior: "smooth" });
-	location.hash = "";
+        const newAnimDelay = Math.max(0, animDelay - loadTime);
+        img.style.setProperty(anim, `${newAnimDelay / 1000}s`);
+
+        img.style.display = "block";
+    };
+
+    img.src = "assets/code.png";
 }
 
-const linksToAnchors = document.querySelectorAll('a[href^="#"]');
-
-linksToAnchors.forEach(each => (each.onclick = anchorLinkHandler));
+loadImage();
+smoothScroll();
