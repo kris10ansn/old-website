@@ -220,6 +220,16 @@ section.title {
 		font-size: calc(var(--title-size) / 2);
 	}
 
+	svg {
+		height: 4rem;
+		fill: white;
+		transition: opacity 0.3s;
+
+		&:hover {
+			opacity: 0.75;
+		}
+	}
+
 	span.spacer {
 		font-size: 1.5rem;
 		font-weight: bold;

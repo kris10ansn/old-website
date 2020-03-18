@@ -202,6 +202,14 @@ section.title h1 {
   text-transform: uppercase;
   font-size: calc(var(--title-size) / 2);
 }
+section.title svg {
+  height: 4rem;
+  fill: white;
+  transition: opacity 0.3s;
+}
+section.title svg:hover {
+  opacity: 0.75;
+}
 section.title span.spacer {
   font-size: 1.5rem;
   font-weight: bold;
