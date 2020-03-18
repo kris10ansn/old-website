@@ -212,6 +212,19 @@ section.title {
 		font-size: calc(var(--title-size) / 2);
 	}
 
+	svg.github {
+		display: block;
+		height: 4rem;
+		fill: white;
+		transition: fill 0.25s ease;
+
+		cursor: pointer;
+
+		&:hover {
+			fill: rgba(255, 255, 255, 0.7);
+		}
+	}
+
 	span.spacer {
 		font-size: 1.5rem;
 		font-weight: bold;
@@ -395,11 +408,17 @@ section.projects {
 	}
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 750px) {
 	section.title {
-		*:not(h1) {
+		*.remove-small {
 			display: none !important;
 		}
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	*.remove-small {
+		display: none !important;
 	}
 }
 

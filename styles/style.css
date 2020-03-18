@@ -195,6 +195,16 @@ section.title h1 {
   text-transform: uppercase;
   font-size: calc(var(--title-size) / 2);
 }
+section.title svg.github {
+  display: block;
+  height: 4rem;
+  fill: white;
+  transition: fill 0.25s ease;
+  cursor: pointer;
+}
+section.title svg.github:hover {
+  fill: rgba(255, 255, 255, 0.7);
+}
 section.title span.spacer {
   font-size: 1.5rem;
   font-weight: bold;
@@ -369,8 +379,13 @@ section.projects div.projects div.card div.buttons button:hover span.arrows {
     text-align: center;
   }
 }
+@media only screen and (max-width: 750px) {
+  section.title *.remove-small {
+    display: none !important;
+  }
+}
 @media only screen and (max-width: 500px) {
-  section.title *:not(h1) {
+  *.remove-small {
     display: none !important;
   }
 }
