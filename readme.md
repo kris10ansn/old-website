@@ -2,4 +2,4 @@
 
 ## Todo
 
-[ ] Load projects from json file
+- [ ] Load projects from json file
