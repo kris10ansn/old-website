@@ -29,6 +29,11 @@ html {
 	opacity: 1;
 }
 
+img,
+svg {
+	user-select: none;
+}
+
 :root,
 * {
 	font-family: "Sen", sans-serif;
@@ -119,6 +124,67 @@ nav {
 	}
 }
 
+mobile-nav {
+	visibility: hidden;
+	opacity: 0;
+	transition: visibility 0.2s ease-out, opacity 0.2s ease-out;
+	display: none;
+}
+
+@media only screen and (max-width: 750px) {
+	nav {
+		div.menu {
+			display: none;
+		}
+		div.hamburger {
+			display: block;
+		}
+	}
+
+	mobile-nav {
+		position: fixed;
+		width: 100vw;
+		height: 100vh;
+		top: 0;
+		left: 0;
+		background-color: rgba($color: #ffffff, $alpha: 0.97);
+		z-index: 1;
+		@include flex-col-center(all);
+
+		div.menu {
+			@include flex-col-center(horizontal);
+
+			a {
+				font-size: 2rem;
+				text-transform: uppercase;
+				margin: 20px 0;
+			}
+
+			a.bmc {
+				height: 3rem;
+				border: 1px solid black;
+				border-radius: 7px;
+				overflow: hidden;
+
+				img {
+					height: 100%;
+					margin: 0;
+					animation: hue-rotate 5s infinite;
+				}
+			}
+		}
+	}
+	mobile-nav.opened:not(.open) {
+		opacity: 0;
+		visibility: hidden;
+	}
+
+	mobile-nav.open {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
 main {
 	display: flex;
 	height: 100vh;
@@ -186,13 +252,17 @@ main {
 
 		div.buttons {
 			display: flex;
+			flex-direction: row;
 
-			button {
-				margin-right: 10px;
-			}
+			a {
+				margin-left: 10px;
 
-			button.more {
-				@include big-button(indigo);
+				&:first-child {
+					margin: 0;
+				}
+				button {
+					@include big-button(indigo);
+				}
 			}
 
 			@include animation(0.2s);
@@ -209,7 +279,7 @@ section.title {
 	background: indigo;
 	margin: 10px 0;
 	display: flex;
-	padding: 4rem var(--margin-sides);
+	padding: 3rem var(--margin-sides);
 	color: white;
 
 	align-items: center;
@@ -250,9 +320,7 @@ section.projects {
 	width: 100vw;
 
 	div.projects {
-		width: calc(
-			100% - var(--margin-sides) * var(--margin-multiplier-projects)
-		);
+		width: calc(100% - var(--margin-sides) * var(--margin-multiplier-projects));
 		height: 100%;
 
 		display: flex;
@@ -288,10 +356,18 @@ section.projects {
 					margin-top: $m;
 				}
 
-				p {
-					font-size: 0.9rem;
+				div.text {
 					margin-top: $m;
 					margin-bottom: $m * 1.5;
+
+					p {
+						margin-top: 20px;
+						font-size: 0.9rem;
+					}
+
+					p:first-child {
+						margin: 0;
+					}
 				}
 			}
 
@@ -380,17 +456,6 @@ section.projects {
 		--title-size: 2rem;
 		--main-width: calc(100vw - var(--margin-sides) * 2);
 		--margin-multiplier-projects: 1.5;
-	}
-}
-
-@media only screen and (max-width: 750px) {
-	nav {
-		div.menu {
-			display: none;
-		}
-		div.hamburger {
-			display: block;
-		}
 	}
 }
 

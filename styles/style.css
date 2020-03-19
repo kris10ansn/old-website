@@ -23,6 +23,11 @@ html {
   opacity: 1;
 }
 
+img,
+svg {
+  user-select: none;
+}
+
 :root,
 * {
   font-family: "Sen", sans-serif;
@@ -95,6 +100,66 @@ nav div.hamburger {
   display: none;
 }
 
+mobile-nav {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.2s ease-out, opacity 0.2s ease-out;
+  display: none;
+}
+
+@media only screen and (max-width: 750px) {
+  nav div.menu {
+    display: none;
+  }
+  nav div.hamburger {
+    display: block;
+  }
+
+  mobile-nav {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.97);
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  mobile-nav div.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  mobile-nav div.menu a {
+    font-size: 2rem;
+    text-transform: uppercase;
+    margin: 20px 0;
+  }
+  mobile-nav div.menu a.bmc {
+    height: 3rem;
+    border: 1px solid black;
+    border-radius: 7px;
+    overflow: hidden;
+  }
+  mobile-nav div.menu a.bmc img {
+    height: 100%;
+    margin: 0;
+    animation: hue-rotate 5s infinite;
+  }
+
+  mobile-nav.opened:not(.open) {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  mobile-nav.open {
+    opacity: 1;
+    visibility: visible;
+  }
+}
 main {
   display: flex;
   height: 100vh;
@@ -149,13 +214,17 @@ main div.content div.desc p {
 }
 main div.content div.buttons {
   display: flex;
+  flex-direction: row;
   opacity: 0;
   animation: slide-up 0.55s ease-out forwards 0.2s;
 }
-main div.content div.buttons button {
-  margin-right: 10px;
+main div.content div.buttons a {
+  margin-left: 10px;
 }
-main div.content div.buttons button.more {
+main div.content div.buttons a:first-child {
+  margin: 0;
+}
+main div.content div.buttons a button {
   text-transform: uppercase;
   background: white;
   border: 4px solid indigo;
@@ -167,22 +236,22 @@ main div.content div.buttons button.more {
   flex-direction: row;
   cursor: pointer;
 }
-main div.content div.buttons button.more span {
+main div.content div.buttons a button span {
   display: block;
   font-size: inherit;
   font-size: 1.1em;
   padding-left: 6px;
   margin: 0;
 }
-main div.content div.buttons button.more span.arrows {
+main div.content div.buttons a button span.arrows {
   transform: rotate(0deg) translateY(-10%);
   transition: transform 0.4s ease;
 }
-main div.content div.buttons button.more:hover {
+main div.content div.buttons a button:hover {
   background: indigo;
   color: white;
 }
-main div.content div.buttons button.more:hover span.arrows {
+main div.content div.buttons a button:hover span.arrows {
   transform: rotate(90deg) translateX(-25%) translateY(-20%);
 }
 
@@ -194,7 +263,7 @@ section.title {
   background: indigo;
   margin: 10px 0;
   display: flex;
-  padding: 4rem var(--margin-sides);
+  padding: 3rem var(--margin-sides);
   color: white;
   align-items: center;
 }
@@ -227,7 +296,7 @@ section.projects {
   width: 100vw;
 }
 section.projects div.projects {
-  width: calc( 			100% - var(--margin-sides) * var(--margin-multiplier-projects) 		);
+  width: calc(100% - var(--margin-sides) * var(--margin-multiplier-projects));
   height: 100%;
   display: flex;
   justify-content: space-between;
@@ -254,10 +323,16 @@ section.projects div.projects div.card div.info h1 {
   font-size: 1.3rem;
   margin-top: 28px;
 }
-section.projects div.projects div.card div.info p {
-  font-size: 0.9rem;
+section.projects div.projects div.card div.info div.text {
   margin-top: 28px;
   margin-bottom: 42px;
+}
+section.projects div.projects div.card div.info div.text p {
+  margin-top: 20px;
+  font-size: 0.9rem;
+}
+section.projects div.projects div.card div.info div.text p:first-child {
+  margin: 0;
 }
 section.projects div.projects div.card div.buttons {
   display: flex;
@@ -357,14 +432,6 @@ section.projects div.projects div.card div.buttons button:hover span.arrows {
     --title-size: 2rem;
     --main-width: calc(100vw - var(--margin-sides) * 2);
     --margin-multiplier-projects: 1.5;
-  }
-}
-@media only screen and (max-width: 750px) {
-  nav div.menu {
-    display: none;
-  }
-  nav div.hamburger {
-    display: block;
   }
 }
 @media only screen and (max-width: 650px) {

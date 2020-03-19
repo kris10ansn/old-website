@@ -5,11 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Kristian Apps</title>
 
-		<link
-			rel="shortcut icon"
-			href="assets/favicon.ico"
-			type="image/x-icon"
-		/>
+		<link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
 
 		<style>
 			* {
@@ -26,10 +22,8 @@
 			</div>
 
 			<div class="menu">
+				<a href="mailto:nessa.kristian@gmail.com">Contact</a>
 				<a href="#projects">Projects</a>
-				<a href="mailto:nessa.kristian@gmail.com" target="_blank"
-					>Contact</a
-				>
 
 				<a
 					href="https://www.buymeacoffee.com/klUfyKN"
@@ -42,9 +36,25 @@
 			</div>
 
 			<div class="hamburger">
-				<!-- <img src="assets/hamburger.svg" alt=":::" /> -->
+				<img id="hamburger-button" src="assets/hamburger.svg" alt=":::" />
 			</div>
 		</nav>
+
+		<mobile-nav>
+			<div class="menu">
+				<a href="mailto:nessa.kristian@gmail.com">Contact</a>
+				<a href="#projects">Projects</a>
+
+				<a
+					href="https://www.buymeacoffee.com/klUfyKN"
+					target="_blank"
+					class="bmc"
+					><img
+						src="https://cdn.buymeacoffee.com/buttons/default-white.png"
+						alt="Buy Me A Coffee"
+				/></a>
+			</div>
+		</mobile-nav>
 
 		<main>
 			<div class="content">
@@ -52,14 +62,12 @@
 
 				<div class="desc">
 					<p>
-						Free, open source apps and tools. I'm a student and
-						coding hobbyist who makes tools and application i want
-						or need myself.
+						Free, open source apps and tools. I'm a student and coding hobbyist
+						who makes tools and application i want or need myself.
 					</p>
 					<div class="remove-small">
 						<p>
-							Check out my work below. I appreciate any and all
-							support.
+							Check out my work below. I appreciate any and all support.
 						</p>
 					</div>
 				</div>
@@ -107,48 +115,74 @@
 			<div class="projects">
 				<div class="card">
 					<div class="info">
-						<img
-							src="assets/ukens_timeplan.png"
-							alt="Uken Timeplan Ikon"
-						/>
+						<img src="assets/favicon-icon.png" alt="Favicon" />
+						<h1>Kristian Apps Website</h1>
+						<div class="text">
+							<p>
+								The website you are looking at right now, hosted with GitHub
+								Pages!
+							</p>
+						</div>
+					</div>
+					<div class="buttons">
+						<a
+							href="https://github.com/kris10ansn/kris10ansn.github.io"
+							target="_blank"
+						>
+							<button>View code</button>
+						</a>
+					</div>
+				</div>
+				<div class="card">
+					<div class="info">
+						<img src="assets/ukens_timeplan.png" alt="Uken Timeplan Ikon" />
 						<h1>Ukens timeplan</h1>
-						<p>
-							An app for norwegian high-schoolers to check their
-							class schedule for the day and or week. It's simpler
-							and faster than looking it up normally.
-						</p>
+						<div class="text">
+							<p>
+								An app for norwegian high-schoolers to check their class
+								schedule for the day and or week. It's simpler and faster than
+								looking it up normally.
+							</p>
+						</div>
 					</div>
 
 					<div class="buttons">
-						<button>Play store</button>
-						<button>View code</button>
+						<a
+							href="https://play.google.com/store/apps/details?id=dev.kris10ansn.ukens_timeplan"
+							target="_blank"
+						>
+							<button>Play store</button>
+						</a>
+						<a
+							href="https://github.com/kris10ansn/ukens_timeplan_app"
+							target="_blank"
+						>
+							<button>View code</button>
+						</a>
 					</div>
 				</div>
 
 				<div class="card">
 					<div class="info">
-						<img
-							src="assets/snake_multiplayer.png"
-							alt="snake multiplayer"
-						/>
+						<img src="assets/snake_multiplayer.png" alt="snake multiplayer" />
 						<h1>Snake multiplayer</h1>
-						<p>
-							Full stack multiplayer snake game, made with express
-							and websocket. Hosted with heroku cloud platform.
-						</p>
+						<div class="text">
+							<p>
+								Full stack multiplayer snake game, made with express and
+								websocket. Hosted with heroku cloud platform.
+							</p>
+						</div>
 					</div>
 
 					<div class="buttons">
+						<a href="https://kristian-snake.herokuapp.com/" target="_blank">
+							<button>Open website</button>
+						</a>
 						<a
-							href="https://kristian-snake.herokuapp.com/"
+							href="https://github.com/kris10ansn/snake_multiplayer"
 							target="_blank"
 						>
-							<button>Open website</button>
-							<a
-								href="https://github.com/kris10ansn/snake_multiplayer"
-							>
-								<button>View code</button>
-							</a>
+							<button>View code</button>
 						</a>
 					</div>
 				</div>
@@ -157,12 +191,20 @@
 					<div class="info">
 						<img src="assets/microbit.png" alt="microbit" />
 						<h1>Microbit Snake</h1>
-						<p>
-							Snake game made for the microbit microcrontroller by
-							BBC.
-						</p>
+						<div class="text">
+							<p>
+								Snake game made for the microbit microcrontroller by BBC. (Only
+								runs on microbit)
+							</p>
+						</div>
 					</div>
 					<div class="buttons">
+						<a
+							href="https://raw.githubusercontent.com/kris10ansn/microbit_snake/master/micropython.hex"
+							target="_blank"
+						>
+							<button>Download</button>
+						</a>
 						<a
 							href="https://github.com/kris10ansn/microbit_snake"
 							target="_blank"
@@ -176,55 +218,93 @@
 					<div class="info">
 						<img src="assets/chess.png" alt="ChessKt" />
 						<h1>ChessKt</h1>
-						<p>Two player chess game, made in kotlin.</p>
+						<div class="text">
+							<p>Two player chess game, made in kotlin.</p>
+						</div>
 					</div>
 					<div class="buttons">
-						<button>Download</button>
-						<button>View code</button>
+						<a
+							href="https://github.com/kris10ansn/ChessKt/raw/master/out/artifacts/chess_jar/chess.jar"
+							target="_blank"
+						>
+							<button>Download</button>
+						</a>
+						<a href="https://github.com/kris10ansn/ChessKt" target="_blank">
+							<button>View code</button>
+						</a>
 					</div>
 				</div>
 				<div class="card">
 					<div class="info">
 						<img src="assets/shortcut.png" alt="S" />
 						<h1>Shortcut converter</h1>
-						<p>
-							Convert .url files into standard windows .lnk
-							shortcuts that can be pinned to the taskbar.
-						</p>
+						<div class="text">
+							<p>
+								Convert .url files into standard windows .lnk shortcuts that can
+								be pinned to the taskbar.
+							</p>
+						</div>
 					</div>
 					<div class="buttons">
-						<button>Download</button>
-						<button>View code</button>
+						<a
+							href="https://github.com/kris10ansn/shortcut-converter/raw/master/dist/Shortcut%20converter%20Setup%201.0.0.exe"
+							target="_blank"
+						>
+							<button>Download</button>
+						</a>
+						<a
+							href="https://github.com/kris10ansn/shortcut-converter"
+							target="_blank"
+						>
+							<button>View code</button>
+						</a>
 					</div>
 				</div>
 				<div class="card">
 					<div class="info">
 						<img src="assets/tetrys.png" alt="Tetrys" />
 						<h1>Tetrys</h1>
-						<p>
-							A modern take on the Tetris game from 1984! It plays
-							in a popup, so you can play it without interrupting
-							your current activity. Closes easily so you can act
-							like youre doing work.
-						</p>
+						<div class="text">
+							<p>
+								A modern take on the Tetris game from 1984! It plays in a popup,
+								so you can play it without interrupting your current activity.
+								Closes easily so you can act like youre doing work.
+							</p>
+						</div>
 					</div>
 					<div class="buttons">
-						<button>Add to browser</button>
-						<button>View code</button>
+						<a
+							href="https://chrome.google.com/webstore/detail/tetrys/bnchicpgbdgahiecgofdabidjihblaff"
+							target="_blank"
+						>
+							<button>Add to browser</button>
+						</a>
+						<a href="https://github.com/kris10ansn/tetrys" target="_blank">
+							<button>View code</button>
+						</a>
 					</div>
 				</div>
 				<div class="card">
 					<div class="info">
 						<img src="assets/snake_head.png" alt="Snake" />
 						<h1>Popup Snake</h1>
-						<p>
-							The good old snake game, but in a popup! Closes
-							easily so you can act like youre doing work.
-						</p>
+						<div class="text">
+							<p>
+								The good old snake game, but in a popup! Closes easily so you
+								can act like youre doing work.
+							</p>
+						</div>
 					</div>
 					<div class="buttons">
-						<button>Add to browser</button>
-						<button>View code</button>
+						<a
+							href="https://chrome.google.com/webstore/detail/snake/oppflpnigmhkldmdmmbnopidlhahanji"
+							target="_blank"
+						>
+							<button>Add to browser</button>
+						</a>
+						<a href="https://github.com/kris10ansn/Snake" target="_blank">
+							<button>View code</button>
+						</a>
 					</div>
 				</div>
 			</div>

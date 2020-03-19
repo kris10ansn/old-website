@@ -27,8 +27,7 @@ function loadImage() {
 
 	img.onload = () => {
 		const styles = window.getComputedStyle(img);
-		const animDelay =
-			(parseFloat(styles.getPropertyValue(anim)) || 0) * 1000;
+		const animDelay = (parseFloat(styles.getPropertyValue(anim)) || 0) * 1000;
 		const loadTime = Date.now() - startTime;
 
 		const newAnimDelay = Math.max(0, animDelay - loadTime);
@@ -40,5 +39,27 @@ function loadImage() {
 	img.src = "assets/code.png";
 }
 
+function removeImageDrag() {
+	const dont = () => false;
+	document
+		.querySelectorAll("img, svg")
+		.forEach(img => (img.ondragstart = dont));
+}
+
+function mobileNav() {
+	const hamburgerButton = document.querySelector("#hamburger-button");
+	const mobileNav = document.querySelector("mobile-nav");
+
+	hamburgerButton.addEventListener("click", () => {
+		console.log("open");
+		mobileNav.classList.add("open");
+		mobileNav.classList.add("opened");
+	});
+
+	mobileNav.addEventListener("click", () => mobileNav.classList.remove("open"));
+}
+
 loadImage();
 smoothScroll();
+removeImageDrag();
+mobileNav();
