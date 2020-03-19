@@ -296,7 +296,7 @@ section.projects {
   width: 100vw;
 }
 section.projects div.projects {
-  width: calc(100% - var(--margin-sides) * var(--margin-multiplier-projects));
+  width: calc( 100% - var(--margin-sides) * var(--margin-multiplier-projects) );
   height: 100%;
   display: flex;
   justify-content: space-between;
