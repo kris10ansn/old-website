@@ -107,59 +107,6 @@ mobile-nav {
   display: none;
 }
 
-@media only screen and (max-width: 750px) {
-  nav div.menu {
-    display: none;
-  }
-  nav div.hamburger {
-    display: block;
-  }
-
-  mobile-nav {
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    background-color: rgba(255, 255, 255, 0.97);
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  mobile-nav div.menu {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  mobile-nav div.menu a {
-    font-size: 2rem;
-    text-transform: uppercase;
-    margin: 20px 0;
-  }
-  mobile-nav div.menu a.bmc {
-    height: 3rem;
-    border: 1px solid black;
-    border-radius: 7px;
-    overflow: hidden;
-  }
-  mobile-nav div.menu a.bmc img {
-    height: 100%;
-    margin: 0;
-    animation: hue-rotate 5s infinite;
-  }
-
-  mobile-nav.opened:not(.open) {
-    opacity: 0;
-    visibility: hidden;
-  }
-
-  mobile-nav.open {
-    opacity: 1;
-    visibility: visible;
-  }
-}
 main {
   display: flex;
   height: 100vh;
@@ -432,6 +379,64 @@ section.projects div.projects div.card div.buttons button:hover span.arrows {
     --title-size: 2rem;
     --main-width: calc(100vw - var(--margin-sides) * 2);
     --margin-multiplier-projects: 1.5;
+  }
+}
+@media only screen and (max-width: 750px) {
+  main div.content {
+    height: calc(100vh - 10vh - 20vh);
+  }
+
+  nav div.menu {
+    display: none;
+  }
+  nav div.hamburger {
+    display: block;
+  }
+
+  mobile-nav {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.97);
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  mobile-nav div.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20%;
+  }
+  mobile-nav div.menu a {
+    font-size: 2rem;
+    text-transform: uppercase;
+    margin: 20px 0;
+  }
+  mobile-nav div.menu a.bmc {
+    height: 3rem;
+    border: 1px solid black;
+    border-radius: 7px;
+    overflow: hidden;
+  }
+  mobile-nav div.menu a.bmc img {
+    height: 100%;
+    margin: 0;
+    animation: hue-rotate 5s infinite;
+  }
+
+  mobile-nav.opened:not(.open) {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  mobile-nav.open {
+    opacity: 1;
+    visibility: visible;
   }
 }
 @media only screen and (max-width: 650px) {

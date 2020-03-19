@@ -131,60 +131,6 @@ mobile-nav {
     display: none;
 }
 
-@media only screen and (max-width: 750px) {
-    nav {
-        div.menu {
-            display: none;
-        }
-        div.hamburger {
-            display: block;
-        }
-    }
-
-    mobile-nav {
-        position: fixed;
-        width: 100vw;
-        height: 100vh;
-        top: 0;
-        left: 0;
-        background-color: rgba($color: #ffffff, $alpha: 0.97);
-        z-index: 1;
-        @include flex-col-center(all);
-
-        div.menu {
-            @include flex-col-center(horizontal);
-
-            a {
-                font-size: 2rem;
-                text-transform: uppercase;
-                margin: 20px 0;
-            }
-
-            a.bmc {
-                height: 3rem;
-                border: 1px solid black;
-                border-radius: 7px;
-                overflow: hidden;
-
-                img {
-                    height: 100%;
-                    margin: 0;
-                    animation: hue-rotate 5s infinite;
-                }
-            }
-        }
-    }
-    mobile-nav.opened:not(.open) {
-        opacity: 0;
-        visibility: hidden;
-    }
-
-    mobile-nav.open {
-        opacity: 1;
-        visibility: visible;
-    }
-}
-
 main {
     display: flex;
     height: 100vh;
@@ -458,6 +404,70 @@ section.projects {
         --title-size: 2rem;
         --main-width: calc(100vw - var(--margin-sides) * 2);
         --margin-multiplier-projects: 1.5;
+    }
+}
+
+// Mobile
+@media only screen and (max-width: 750px) {
+    main {
+        div.content {
+            height: calc(100vh - #{$nav-height} - #{$margin-top-bottom});
+        }
+    }
+
+    nav {
+        div.menu {
+            display: none;
+        }
+        div.hamburger {
+            display: block;
+        }
+    }
+
+    mobile-nav {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        background-color: rgba($color: #ffffff, $alpha: 0.97);
+        z-index: 1;
+        @include flex-col-center(all);
+
+        div.menu {
+            @include flex-col-center(horizontal);
+
+            a {
+                font-size: 2rem;
+                text-transform: uppercase;
+                margin: 20px 0;
+            }
+
+            a.bmc {
+                height: 3rem;
+                border: 1px solid black;
+                border-radius: 7px;
+                overflow: hidden;
+
+                img {
+                    height: 100%;
+                    margin: 0;
+                    animation: hue-rotate 5s infinite;
+                }
+            }
+
+            // Bottom bar on most mobile browser
+            margin-bottom: 20%;
+        }
+    }
+    mobile-nav.opened:not(.open) {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    mobile-nav.open {
+        opacity: 1;
+        visibility: visible;
     }
 }
 
